@@ -19,6 +19,8 @@ git clone https://github.com/your-username/mohans-blog-page.git
 ###License
 
 This project is licensed under the MIT License.
+
 ###Live Demo
+
 [![](./assets/template.png)](https://github.com/MohanRamSridhar/mohanRam/blob/8f4a6d9780195a5b025c7d47b691ae69e08cf3f7/assets/template.png)
 
