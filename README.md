@@ -16,7 +16,7 @@ This is a simple blog page template designed by Mohan, a competitive programmer 
 To use this blog page template, simply clone the repository to your local machine:
 
 ```bash
-git clone https://github.com/your-username/mohans-blog-page.git
+git clone https://github.com/MohanRamSridhar/mohanRam.git
 ```
 
 ### License
