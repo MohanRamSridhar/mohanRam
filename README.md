@@ -11,7 +11,7 @@ This is a simple blog page template designed by Mohan, a competitive programmer 
 - Contact section with social media links.
 - Music section showcasing Mohan's most listened songs.
 
-###Installation
+### Installation
 
 To use this blog page template, simply clone the repository to your local machine:
 
@@ -19,11 +19,11 @@ To use this blog page template, simply clone the repository to your local machin
 git clone https://github.com/your-username/mohans-blog-page.git
 ```
 
-###License
+### License
 
 This project is licensed under the MIT License.
 
-###Live Demo
+### Live Demo
 
 [![](./assets/template.png)](https://github.com/MohanRamSridhar/mohanRam/blob/8f4a6d9780195a5b025c7d47b691ae69e08cf3f7/assets/template.png)
 
