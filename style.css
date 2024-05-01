@@ -875,7 +875,7 @@ footer .wrapper { text-align: center; }
     border-radius: 0 0 280px 230px;
     transform: translate(10px, -10px);
   }
-
+/*
 .hero .shape {
   position: absolute;
   top:  50%;
@@ -897,9 +897,9 @@ footer .wrapper { text-align: center; }
       box-shadow: 0 0 20px 5px rgba(51, 102, 255, 0.8), 0 0 70px 20px rgba(51, 102, 255, 0.6), 0 0 140px 40px rgba(51, 102, 255, 0.4);
   }
 }
-
+*/
   
-/*
+
 .hero .shape {
   position: absolute;
   top:  50%;
@@ -942,7 +942,6 @@ footer .wrapper { text-align: center; }
   z-index: -2;
 }
 
-*/
 
 
   /**
