@@ -875,7 +875,8 @@ footer .wrapper { text-align: center; }
     border-radius: 0 0 280px 230px;
     transform: translate(10px, -10px);
   }
-/*
+
+  
 .hero .shape {
   position: absolute;
   top:  50%;
@@ -883,23 +884,22 @@ footer .wrapper { text-align: center; }
   width:  500px;
   height: 500px;
   transform: translate(-50%, -50%);
-  background: linear-gradient(to bottom, #3366ff 0%, #00ccff 100%);
   border-radius: 50%;
+  background: radial-gradient(circle, #ffcc00 0%, #ff3300 70%, #660000 100%);
   animation: flicker 1s infinite alternate ease-in-out;
   z-index: -1;
 }
 
 @keyframes flicker {
   0% {
-      box-shadow: 0 0 20px 5px rgba(51, 102, 255, 0.8), 0 0 50px 15px rgba(51, 102, 255, 0.6), 0 0 100px 30px rgba(51, 102, 255, 0.4);
+      box-shadow: 0 0 20px 5px rgba(255, 204, 0, 0.8), 0 0 50px 15px rgba(255, 51, 0, 0.6), 0 0 100px 30px rgba(102, 0, 0, 0.4);
   }
   100% {
-      box-shadow: 0 0 20px 5px rgba(51, 102, 255, 0.8), 0 0 70px 20px rgba(51, 102, 255, 0.6), 0 0 140px 40px rgba(51, 102, 255, 0.4);
+      box-shadow: 0 0 20px 5px rgba(255, 204, 0, 0.8), 0 0 70px 20px rgba(255, 51, 0, 0.6), 0 0 140px 40px rgba(102, 0, 0, 0.4);
   }
 }
-*/
   
-
+/*
 .hero .shape {
   position: absolute;
   top:  50%;
@@ -942,7 +942,7 @@ footer .wrapper { text-align: center; }
   z-index: -2;
 }
 
-
+*/
 
   /**
    * MAIN 
