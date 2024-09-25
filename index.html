@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Copy Text Example</title>
+  <title>Copy Assembly Code</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -15,11 +15,15 @@
     }
     .container {
       text-align: center;
+      max-width: 800px;
     }
     textarea {
-      width: 300px;
-      height: 50px;
+      width: 100%;
+      height: 300px;
       padding: 10px;
+      font-family: monospace;
+      font-size: 14px;
+      resize: none;
     }
     button {
       margin-top: 10px;
@@ -31,9 +35,66 @@
 <body>
 
   <div class="container">
-    <textarea id="textBox">I how are you in there</textarea>
+    <textarea id="textBox">
+org 0000H           ; Start at memory location 0000H
+    Mov TMod, #20H      ; Configure Timer 1 in Mode 2 (8-bit auto-reload) for baud rate generation
+    Mov TH1, #-6DH      ; Load TH1 with -109 for 9600 baud rate (if clock is 11.0592 MHz)
+    Mov SCON, #50H      ; Configure UART in Mode 1 (8-bit UART, variable baud rate)
+
+again:
+    setb TR1            ; Start Timer 1 (for baud rate generation)
+    Mov SBUF, #'G'      ; Load the character 'G' into the serial buffer for transmission
+
+Here:
+    JnB TI, Here        ; Wait for TI (transmit interrupt flag) to be set (indicating transmission complete)
+    clr TI              ; Clear TI flag for the next transmission
+    clr RI              ; Clear RI flag (not used but good practice)
+    sjmp again          ; Repeat the process indefinitely
+
+Transmit word hello baud rate 9600
+org 0000H            ; Start at memory location 0000H
+
+mov TMOD,#20H        ; Configure Timer 1 in Mode 2 (8-bit auto-reload) for baud rate generation
+mov TH1,#-3DH        ; Load TH1 with -61 (-3D hex) for 9600 baud rate (11.0592 MHz crystal)
+mov SCON,#50H        ; Configure UART in Mode 1 (8-bit UART, variable baud rate)
+
+Again:              
+    setb TR1         ; Start Timer 1 (for baud rate generation)
+    
+    ; Transmit 'H'
+    mov A,#'H'       ; Load the letter 'H' into the accumulator
+    acall Serial     ; Call the serial transmission routine
+    
+    ; Transmit 'E'
+    mov A,#'E'       ; Load the letter 'E' into the accumulator
+    acall Serial     ; Call the serial transmission routine
+    
+    ; Transmit 'L'
+    mov A,#'L'       ; Load the letter 'L' into the accumulator
+    acall Serial     ; Call the serial transmission routine
+    
+    ; Transmit another 'L'
+    mov A,#'L'       ; Load the letter 'L' again into the accumulator
+    acall Serial     ; Call the serial transmission routine
+    
+    ; Transmit 'O'
+    mov A,#'O'       ; Load the letter 'O' into the accumulator
+    acall Serial     ; Call the serial transmission routine
+    
+    sjmp Again       ; Loop back to transmit "HELLO" again
+
+; Serial transmission subroutine
+Serial:
+    mov SBUF,A       ; Move the value in A (the character) to the serial buffer (SBUF)
+    
+Here:
+    jnb TI,Here      ; Wait for the transmit interrupt (TI) flag to be set (transmission complete)
+    
+    clr TI           ; Clear the TI flag for the next transmission
+    ret              ; Return to the main program
+    </textarea>
     <br>
-    <button onclick="copyText()">Copy Text</button>
+    <button onclick="copyText()">Copy Code</button>
   </div>
 
   <script>
@@ -42,9 +103,9 @@
       textBox.select();
       textBox.setSelectionRange(0, 99999);  // For mobile devices
       navigator.clipboard.writeText(textBox.value).then(() => {
-        alert("Text copied to clipboard!");
+        alert("Code copied to clipboard!");
       }).catch(err => {
-        alert('Error copying text: ', err);
+        alert('Error copying code: ', err);
       });
     }
   </script>
